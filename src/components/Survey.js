@@ -15,18 +15,30 @@ class Survey extends React.Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      increasing: nextProps.Survey > this.props.Survey,
-      decreasing: nextProps.Survey < this.props.Survey
-    })
+    if (this.props.Survey < nextProps.Survey) {
+      this.setState({
+        increasing: true,
+        decreasing: false
+      });
+    } else if (this.props.Survey > nextProps.Survey) {
+      this.setState({
+        increasing: false,
+        decreasing: true
+      });
+    } else {
+      this.setState({
+        increasing: false,
+        decreasing: false
+      })
+    }
   }
 
   increaseRating = () => {
-    this.setState({ rating: this.state.rating + 1 });
+    this.setState({ rating: this.state.Survey + 1 });
   }
 
   decreaseRating = () => {
-    this.setState({ rating: this.state.rating - 1 });
+    this.setState({ rating: this.state.Survey - 1 });
   }
 
   maintainRating = () => this.forceUpdate();
@@ -34,7 +46,7 @@ class Survey extends React.Component {
   render() {
     return (
       <div>
-        <Rating rating={this.state.rating} />
+        <Rating rating={this.state.Survey} />
         <button onClick={this.increaseRating}>Loved it!</button>
         <button onClick={this.maintainRating}>Indifferent!</button>
         <button onClick={this.decreaseRating}>Hated it!</button>

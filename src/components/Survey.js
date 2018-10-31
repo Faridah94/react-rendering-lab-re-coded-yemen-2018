@@ -1,5 +1,5 @@
 import React from 'react';
-import Rating from './Rating';
+import Rating from './Survey';
 
 function random(array) {
   return array[Math.floor(Math.random() * array.length)];

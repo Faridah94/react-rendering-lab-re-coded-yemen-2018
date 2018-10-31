@@ -9,9 +9,9 @@ class Survey extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
-      rating: 0
+      increasing: false,
+      decreasing: false
     };
   }
   componentWillReceiveProps(nextProps) {

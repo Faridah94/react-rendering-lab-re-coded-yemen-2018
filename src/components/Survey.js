@@ -18,11 +18,9 @@ class Survey extends React.Component {
     if (this.props.Survey < nextProps.Survey) {
       this.setState({
         increasing: true,
-        decreasing: false
       });
     } else if (this.props.Survey > nextProps.Survey) {
       this.setState({
-        increasing: false,
         decreasing: true
       });
     } else {
